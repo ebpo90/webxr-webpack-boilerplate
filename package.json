@@ -44,7 +44,7 @@
     "lint": "npm-run-all lint:*",
     "lint:stylelint": "stylelint './src/app/sass/**/*.scss' --syntax scss --config ./config/stylelint.json",
     "lint:standard": "standard -v | snazzy",
-    "start": "NODE_ENV=development webpack-dev-server --config ./devel/webpack.dev.js",
+    "start": "NODE_ENV=development webpack-dev-server --https --config ./devel/webpack.dev.js",
     "test:ci-on-linux": "echo \"run tests\"",
     "test:ci-on-mac": "echo \"run tests\"",
     "test:ci-on-windows": "echo \"run tests\"",
@@ -54,6 +54,9 @@
     "aframe": "^0.8.0"
   },
   "devDependencies": {
+    "aframe-alongpath-component": "^1.0.5",
+    "aframe-ar": "^0.2.1-a",
+    "aframe-extras.ocean": "^4.0.1",
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
     "babel-preset-env": "^1.6.1",

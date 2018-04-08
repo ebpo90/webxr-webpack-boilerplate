@@ -1,6 +1,46 @@
-{{> entity/default-sphere}}
+<a-assets>
+    <a-mixin id="eye-trigger" geometry="primitive:sphere; radius:0.1" material="color:#ff0000"></a-mixin>
+</a-assets>
+
+<a-curve id="plane1">
+  <a-curve-point id="plane1-start" position="-8, 10, -10"></a-curve-point>
+  <a-curve-point id="plane1-curve" position="1, 10, -15"></a-curve-point>
+  <a-curve-point id="plane1-end" position="1, 10, -18"></a-curve-point>
+</a-curve>
+
+
+
+<!-- <a-draw-curve curveref="#plane1" material="shader: line; color: red;"></a-draw-curve> -->
+
+<a-entity clone-along-curve="curve: #plane1; spacing: 0.4; scale: 1 1 1; rotation: 90 0 0;"
+geometry="primitive:box; height:0.2; width:0.05; depth:0.05"
+material="shader: flat; color:#3EFF0A"></a-entity>
+
+
+<a-entity id="cylinder"  geometry="primitive: cylinder; height: 2; radius: 0.2; "
+    material="color: #3EFF0A; shader: flat"
+    position="1 10 -15"
+    rotation="-90 120 0"
+    light="type: point; intensity: 2"
+    alongpath="curve: #plane1; loop:true; dur:10000; delay:0; triggerRadius:1;  rotate:true;"></a-entity>
+
+
+<a-entity id="ocean" ocean="density: 20; width: 50; depth: 50; speed: 1"
+          material="color: #313932; opacity: 0.75; metalness: 0; roughness: 1"
+          rotation="-90 0 0"></a-entity>
+
+<a-sky position="0 -200 0" color="#091F04"></a-sky>
+
+<a-entity id="player" position="0 0 0">
+    <a-camera>
+        <a-cursor></a-cursor>
+    </a-camera>
+</a-entity>
+
+
+<!-- {{> entity/default-sphere}}
 {{> entity/default-cylinder}}
 {{> entity/default-plane}}
 {{> entity/custom-box}}
 {{> sky/default-sky}}
-{{> camera/default-camera}}
+{{> camera/default-camera}} -->

@@ -7,3 +7,8 @@ import 'aframe/src'
  * require below all external aframe components
  * not your app modules
  */
+
+require('aframe-extras.ocean');
+require('aframe-curve-component');
+require('aframe-alongpath-component');
+require('aframe-ar');
